@@ -6,7 +6,8 @@
   "types": "build",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -d"
+    "build": "tsc -d",
+    "type-check": "tsc --noEmt"
   },
   "keywords": [
     "api",
@@ -20,6 +21,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/graphql": "^14.5.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
@@ -27,6 +30,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^7.18.0",
     "typescript": "^4.1.3"
   },
   "dependencies": {

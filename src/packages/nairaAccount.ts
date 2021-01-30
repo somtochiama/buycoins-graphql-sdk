@@ -11,13 +11,8 @@ class NairaAccount extends Api {
         super(client)
     }
 
-    async createDepositAccount(createOptions: createOpts) {
-        try {
-            const data = await this.query(operationsData.createNairaAccount, createOptions)
-            return data
-          } catch (error) {
-            throw error
-          }
+    async createDepositAccount(createOptions: createOpts): Promise<any> {
+        return this.query(operationsData.createNairaAccount, createOptions)
     }
 }
 
