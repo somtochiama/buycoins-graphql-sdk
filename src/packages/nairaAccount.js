@@ -1,7 +1,8 @@
-import mutations from '../operations/mutations'
 import Api from './api'
 import 'babel-core/register'
 import 'babel-polyfill';
+
+const createOperation = "createNairaAccount"
 
 class NairaAccount extends Api {
     constructor(client) {
@@ -13,7 +14,7 @@ class NairaAccount extends Api {
             const accOpts = {
                 accountName
             }
-            const data = await this.client.request(mutations.createNairaAccount, accOpts)
+            const data = await this.query(createOperation, accOpts)
             return data
           } catch (error) {
             throw error

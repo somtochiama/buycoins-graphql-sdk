@@ -1,17 +1,26 @@
-import operations from '../operations/query'
-import mutations from '../operations/mutations'
 import Api from './api'
 import 'babel-core/register'
 import 'babel-polyfill';
+
+const getPriceOperation = 'getPrices';
+const getOrderOperation = 'getOrder';
+const buyOperation = 'buyCoin';
+const sellOperation = 'sellCoin';
 
 class Orders extends Api {
     constructor(client) {
         super(client)
     }
 
+    // TODO: move to utils 
+    static findPrice(data, crypto) {
+        return data.find(price => price.cryptocurrency == crypto)
+    }
+
+
     async getPrices() {
         try {
-            const data = await this.client.request(operations.getPrices)
+            const data = await this.query(getPriceOperation)
             return data
           } catch (error) {
             throw error
@@ -21,7 +30,7 @@ class Orders extends Api {
     async buy(amount, crypto) {
         try {
             const prices = await this.getPrices()
-            var priceData = findPrice(prices.getPrices, crypto)
+            var priceData = Orders.findPrice(prices.getPrices, crypto)
             // TODO: Write validator
             if (priceData == undefined) {
                 throw new Error (`could not find price for crypto ${crypto}.`)
@@ -35,7 +44,7 @@ class Orders extends Api {
                 amount,
                 price: priceData.id
             }
-            var data = await this.client.request(mutations.buyCoin, buyOptions)
+            var data = await this.query(buyOperation, buyOptions)
             return data
           } catch (error) {
             throw error
@@ -45,7 +54,7 @@ class Orders extends Api {
     async sell(amount, crypto) {
         try {
             const prices = await this.getPrices()
-            var priceData = findPrice(prices.getPrices, crypto)
+            var priceData = Orders.findPrice(prices.getPrices, crypto)
             // TODO: Write validator
             if (priceData == undefined) {
                 throw new Error (`could not find price for crypto ${crypto}.`)
@@ -59,7 +68,7 @@ class Orders extends Api {
                 amount,
                 price: priceData.id
             }
-            var data = await this.client.request(mutations.sellCoin, sellOptions)
+            var data = await this.query(sellOperation, sellOptions)
             return data
           } catch (error) {
             throw error
@@ -68,7 +77,7 @@ class Orders extends Api {
 
     async getOrder(id) {
         try {
-            const data = await this.client.request(operations.getOrderById, {id})
+            const data = await this.query(getOrderOperation, {id})
             return data
           } catch (error) {
             throw error
@@ -77,11 +86,5 @@ class Orders extends Api {
 
 }
 
-// TODO: move to utils 
-function findPrice(data, crypto) {
-    return data.find(price => price.cryptocurrency == crypto)
-}
 
 export default Orders
-
-// T3JkZXItNzBiODA5YzUtZTAxOS00MGM3LWFkMWYtODkzYjgxNzY4MTRj
