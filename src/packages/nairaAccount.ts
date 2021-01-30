@@ -1,7 +1,5 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import Api from './api'
-import 'babel-core/register'
-import 'babel-polyfill';
 
 const createOperation = "createNairaAccount"
 

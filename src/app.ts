@@ -5,7 +5,7 @@ import NairaAccount from './packages/nairaAccount'
 
 const BUYCOINS_API_URL = "https://backend.buycoins.tech/api/graphql"
 
-class Buycoins {
+export class Buycoins {
     nairaAccount: NairaAccount
     client: GraphQLClientClass
     orders: Orders
@@ -21,5 +21,3 @@ class Buycoins {
     }
 
 }
-
-export default Buycoins

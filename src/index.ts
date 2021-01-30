@@ -1,6 +1,6 @@
 // For test
 
-import Buycoins from './app'
+import { Buycoins } from './app'
 
 var buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_KEY)
 

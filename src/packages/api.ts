@@ -1,7 +1,5 @@
 import {Operations, operationsData}  from './operations'
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
-import 'babel-core/register'
-import 'babel-polyfill';
 
 interface ApiOptions {
     [key: string]: any;
