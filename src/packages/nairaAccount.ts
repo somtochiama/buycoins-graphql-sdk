@@ -1,20 +1,22 @@
+import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import Api from './api'
 import 'babel-core/register'
 import 'babel-polyfill';
 
 const createOperation = "createNairaAccount"
 
+interface createOpts {
+    accountName: string
+}
+
 class NairaAccount extends Api {
-    constructor(client) {
+    constructor(client: GraphQLClientClass) {
         super(client)
     }
 
-    async createDepositAccount(accountName) {
+    async createDepositAccount(createOptions: createOpts) {
         try {
-            const accOpts = {
-                accountName
-            }
-            const data = await this.query(createOperation, accOpts)
+            const data = await this.query(createOperation, createOptions)
             return data
           } catch (error) {
             throw error

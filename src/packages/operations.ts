@@ -1,6 +1,10 @@
 import { gql } from 'graphql-request'
 
-const operations = {
+export interface Operations {
+    [key:string]: string
+}
+
+export const operationsData: Operations = {
     getPrices:  gql`
         query{
             getPrices{
@@ -61,5 +65,3 @@ const operations = {
     `
 }
 
-
-export default operations

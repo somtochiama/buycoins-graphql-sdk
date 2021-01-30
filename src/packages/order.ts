@@ -1,3 +1,4 @@
+import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import Api from './api'
 import 'babel-core/register'
 import 'babel-polyfill';
@@ -7,13 +8,29 @@ const getOrderOperation = 'getOrder';
 const buyOperation = 'buyCoin';
 const sellOperation = 'sellCoin';
 
+interface buyOptions {
+    crypto: string,
+    amount: number,
+    price: string
+}
+
+interface sellOptions {
+    crypto: string,
+    amount: number,
+    price: string
+}
+
+interface PriceData {
+    [key: string]: any
+}
+
 class Orders extends Api {
-    constructor(client) {
+    constructor(client: GraphQLClientClass) {
         super(client)
     }
 
     // TODO: move to utils 
-    static findPrice(data, crypto) {
+    static findPrice(data: Array<PriceData>, crypto: string): PriceData {
         return data.find(price => price.cryptocurrency == crypto)
     }
 
@@ -27,7 +44,7 @@ class Orders extends Api {
           }
     }
 
-    async buy(amount, crypto) {
+    async buy(amount: number, crypto: string) {
         try {
             const prices = await this.getPrices()
             var priceData = Orders.findPrice(prices.getPrices, crypto)
@@ -51,7 +68,7 @@ class Orders extends Api {
           }
     }
 
-    async sell(amount, crypto) {
+    async sell(amount: number, crypto: string) {
         try {
             const prices = await this.getPrices()
             var priceData = Orders.findPrice(prices.getPrices, crypto)
@@ -75,7 +92,7 @@ class Orders extends Api {
           }
     }
 
-    async getOrder(id) {
+    async getOrder(id: string) {
         try {
             const data = await this.query(getOrderOperation, {id})
             return data
