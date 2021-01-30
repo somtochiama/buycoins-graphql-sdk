@@ -1,22 +1,6 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
+import { operationsData } from './operations'
 import Api from './api'
-
-const getPriceOperation = 'getPrices';
-const getOrderOperation = 'getOrder';
-const buyOperation = 'buyCoin';
-const sellOperation = 'sellCoin';
-
-interface buyOptions {
-    crypto: string,
-    amount: number,
-    price: string
-}
-
-interface sellOptions {
-    crypto: string,
-    amount: number,
-    price: string
-}
 
 interface PriceData {
     [key: string]: any
@@ -35,7 +19,7 @@ class Orders extends Api {
 
     async getPrices() {
         try {
-            const data = await this.query(getPriceOperation)
+            const data = await this.query(operationsData.getPrices)
             return data
           } catch (error) {
             throw error
@@ -45,7 +29,7 @@ class Orders extends Api {
     async buy(amount: number, crypto: string) {
         try {
             const prices = await this.getPrices()
-            var priceData = Orders.findPrice(prices.getPrices, crypto)
+            let priceData = Orders.findPrice(prices.getPrices, crypto)
             // TODO: Write validator
             if (priceData == undefined) {
                 throw new Error (`could not find price for crypto ${crypto}.`)
@@ -54,12 +38,12 @@ class Orders extends Api {
                 console.log("here")
                 throw new Error (`price must be betweeen ${priceData.minBuy} and ${priceData.maxBuy}`)
             }
-            var buyOptions = {
+            let buyOptions = {
                 crypto,
                 amount,
                 price: priceData.id
             }
-            var data = await this.query(buyOperation, buyOptions)
+            let data = await this.query(operationsData.buyCoin, buyOptions)
             return data
           } catch (error) {
             throw error
@@ -69,7 +53,7 @@ class Orders extends Api {
     async sell(amount: number, crypto: string) {
         try {
             const prices = await this.getPrices()
-            var priceData = Orders.findPrice(prices.getPrices, crypto)
+            let priceData = Orders.findPrice(prices.getPrices, crypto)
             // TODO: Write validator
             if (priceData == undefined) {
                 throw new Error (`could not find price for crypto ${crypto}.`)
@@ -78,12 +62,12 @@ class Orders extends Api {
                 console.log("here")
                 throw new Error (`price must be betweeen ${priceData.minSell} and ${priceData.maxSell}`)
             }
-            var sellOptions = {
+            let sellOptions = {
                 crypto,
                 amount,
                 price: priceData.id
             }
-            var data = await this.query(sellOperation, sellOptions)
+            let data = await this.query(operationsData.sellCoin, sellOptions)
             return data
           } catch (error) {
             throw error
@@ -92,7 +76,7 @@ class Orders extends Api {
 
     async getOrder(id: string) {
         try {
-            const data = await this.query(getOrderOperation, {id})
+            const data = await this.query(operationsData.getOrder, {id})
             return data
           } catch (error) {
             throw error

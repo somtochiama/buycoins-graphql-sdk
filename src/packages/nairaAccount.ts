@@ -1,7 +1,6 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
+import { operationsData } from './operations'
 import Api from './api'
-
-const createOperation = "createNairaAccount"
 
 interface createOpts {
     accountName: string
@@ -14,7 +13,7 @@ class NairaAccount extends Api {
 
     async createDepositAccount(createOptions: createOpts) {
         try {
-            const data = await this.query(createOperation, createOptions)
+            const data = await this.query(operationsData.createNairaAccount, createOptions)
             return data
           } catch (error) {
             throw error
