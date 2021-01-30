@@ -15,17 +15,12 @@ class Orders extends Api {
     constructor(client: GraphQLClientClass) {
         super(client)
     }
-
-    // TODO: move to utils 
-    static findPrice(data: Array<PriceData>, crypto: string): PriceData {
-        return data.find(price => price.cryptocurrency == crypto)
-    }
-
+    
     getPriceID(amount: number, crypto: string, action: action): string{
         let priceData: PriceData
         this.getPrices()
         .then(data => {
-            priceData = Orders.findPrice(data.getPrices, crypto)
+            priceData = data.find((price: PriceData) => price.cryptocurrency == crypto)
         })
         // TODO: Write validator
         if (priceData == undefined) {

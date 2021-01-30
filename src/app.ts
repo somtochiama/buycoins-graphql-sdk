@@ -11,7 +11,10 @@ export class Buycoins {
     orders: Orders
 
     constructor(publicKey: string, secretKey: string) {
-        // super()
+        if (!publicKey || !secretKey) {
+            throw new Error("missing credentials, please pass in pub/secret key")
+        }
+
         const authValue = Buffer.from(publicKey + ':' + secretKey).toString('base64');
         this.client = new GraphQLClient(BUYCOINS_API_URL, { headers: {
             authorization: `Basic ${authValue}`

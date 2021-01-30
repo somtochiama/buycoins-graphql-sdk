@@ -1,10 +1,10 @@
 // For test
 
-import { Buycoins } from './app'
+import Orders from './packages/order'
 
-const buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_KEY)
+const buycoinsClient = new Orders(null)
 
-buycoinsClient.orders.getPrices()
+buycoinsClient.getPrices()
 .then(data => console.log(data))
 .catch(err => {
     if (err.response) {
