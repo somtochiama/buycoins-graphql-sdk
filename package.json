@@ -1,0 +1,33 @@
+{
+  "name": "buycoins-graphql-sdk",
+  "version": "1.0.0",
+  "description": "A Javascript SDK for Buycoins GraphQL API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d build && node build/index.js"
+  },
+  "keywords": [
+    "api",
+    "sdk",
+    "graphql",
+    "js",
+    "buycoins",
+    "sendcash"
+  ],
+  "author": "Somtochi Onyekwere",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  },
+  "dependencies": {
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0"
+  }
+}
