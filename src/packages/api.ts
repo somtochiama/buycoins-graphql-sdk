@@ -1,4 +1,3 @@
-import { operationsData}  from './operations'
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 
 interface ApiOptions {
@@ -12,7 +11,7 @@ export default class Api {
         this.client = client
     }
 
-    async query(operation: string, options?: ApiOptions) {
+    async query(operation: string, options?: ApiOptions): Promise<any>{
         if (!this.client) {
             throw new Error(
                 'Missing client, construct with Buycoins class',

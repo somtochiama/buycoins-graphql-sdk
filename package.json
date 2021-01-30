@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -d",
-    "type-check": "tsc --noEmt"
+    "type-check": "tsc --noEmt",
+    "lint": "eslint . --ext .ts --fix"
   },
   "keywords": [
     "api",

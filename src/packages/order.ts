@@ -32,7 +32,6 @@ class Orders extends Api {
             throw new Error (`could not find price data for crypto ${crypto}.`)
         }
         if (amount < priceData[`min${action}`] || amount > priceData[`max${action}`]) {
-            console.log("here")
             throw new Error (`price must be betweeen ${priceData.minBuy} and ${priceData.maxBuy}`)
         }
 
@@ -44,8 +43,8 @@ class Orders extends Api {
     }
 
     async buy(amount: number, crypto: string): Promise<any>{
-        let priceID = this.getPriceID(amount, crypto, action.Buy)
-        let buyOptions = {
+        const priceID = this.getPriceID(amount, crypto, action.Buy)
+        const buyOptions = {
             crypto,
             amount,
             price: priceID
@@ -53,9 +52,9 @@ class Orders extends Api {
         return this.query(operationsData.buyCoin, buyOptions)
     }
 
-    async sell(amount: number, crypto: string) {
-        let priceID = this.getPriceID(amount, crypto, action.Sell)
-        let sellOptions = {
+    async sell(amount: number, crypto: string): Promise<any>{
+        const priceID = this.getPriceID(amount, crypto, action.Sell)
+        const sellOptions = {
             crypto,
             amount,
             price: priceID
