@@ -16,18 +16,17 @@ class Orders extends Api {
         super(client)
     }
     
-    getPriceID(amount: number, crypto: string, action: action): string{
-        let priceData: PriceData
-        this.getPrices()
-        .then(data => {
-            priceData = data.find((price: PriceData) => price.cryptocurrency == crypto)
-        })
+    async getPriceID(amount: number, crypto: string, action: action): Promise<string>{
+        const data = await this.getPrices()
+        const priceData = data.getPrices.find((price: PriceData) => price.cryptocurrency == crypto)
         // TODO: Write validator
         if (priceData == undefined) {
             throw new Error (`could not find price data for crypto ${crypto}.`)
         }
-        if (amount < priceData[`min${action}`] || amount > priceData[`max${action}`]) {
-            throw new Error (`price must be betweeen ${priceData.minBuy} and ${priceData.maxBuy}`)
+        var min = `min${action}`
+        var max = `max${action}`
+        if (amount < priceData[min] || amount > priceData[max]) {
+            throw new Error (`price must be betweeen ${min} and ${max}`)
         }
 
         return priceData.id
@@ -38,7 +37,7 @@ class Orders extends Api {
     }
 
     async buy(amount: number, crypto: string): Promise<any>{
-        const priceID = this.getPriceID(amount, crypto, action.Buy)
+        const priceID = await this.getPriceID(amount, crypto, action.Buy)
         const buyOptions = {
             crypto,
             amount,
@@ -48,7 +47,7 @@ class Orders extends Api {
     }
 
     async sell(amount: number, crypto: string): Promise<any>{
-        const priceID = this.getPriceID(amount, crypto, action.Sell)
+        const priceID = await this.getPriceID(amount, crypto, action.Sell)
         const sellOptions = {
             crypto,
             amount,
