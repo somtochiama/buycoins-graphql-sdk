@@ -4,7 +4,7 @@ on: [ push, pull_request]
 
 jobs:
   run-test:
-    name: Run tests
+    name: Lint and Run tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -15,5 +15,6 @@ jobs:
         with:
           node-version: '12.x'
       - run: npm install
+      - run: npm run lint
       - run: npm test
 

@@ -28,11 +28,11 @@ const buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_K
 buycoinsClient.nairaAccount.createDepositAccount({
     accountName: "somtochi test"
 })
-.then(data => console.log(data))
-.catch(err => {
-    if (err.response) {
-        console.log(err.response)
-    }
-    console.log(err)
-})
+// .then(data => console.log(data))
+// .catch(err => {
+//     if (err.response) {
+//         console.log(err.response)
+//     }
+//     console.log(err)
+// })
 // id: 'T3JkZXItNzBiODA5YzUtZTAxOS00MGM3LWFkMWYtODkzYjgxNzY4MTRj',

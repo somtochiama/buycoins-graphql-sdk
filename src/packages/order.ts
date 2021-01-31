@@ -23,8 +23,8 @@ class Orders extends Api {
         if (priceData == undefined) {
             throw new Error (`could not find price data for crypto ${crypto}.`)
         }
-        var min = `min${action}`
-        var max = `max${action}`
+        const min = `min${action}`
+        const max = `max${action}`
         if (amount < priceData[min] || amount > priceData[max]) {
             throw new Error (`price must be betweeen ${min} and ${max}`)
         }
