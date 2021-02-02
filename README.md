@@ -3,6 +3,9 @@
 A simple javascript SDK for the [Buycoins API](https://developers.buycoins.africa)
 
 [![codecov](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk/branch/main/graph/badge.svg?token=R4Q1P67I5R)](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk)
+![Tests](https://github.com/actions/hello-world/workflows/Lint%20and%20Run%20test/badge.svg)
+
+
 
 ## Table of Contents
 
