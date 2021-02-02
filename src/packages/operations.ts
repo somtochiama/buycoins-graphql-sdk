@@ -52,7 +52,7 @@ export const operationsData: Operations = {
             }
         }
     `,
-    createNairaAccount: `
+    createNairaAccount: gql`
     mutation createDepositAccount($accountName: String!) {
         createDepositAccount(accountName: $accountName) {
         accountNumber
@@ -62,6 +62,107 @@ export const operationsData: Operations = {
         accountReference
         }
     }
+    `,
+    buycoinsPrices: gql`
+    query($side: String!, $mode: String!, $crypto: String!) {
+        buycoinsPrices(side: $side, mode: $mode, cryptocurrency: $crypto){
+            buyPricePerCoin
+            cryptocurrency
+            id
+            maxBuy
+            maxSell
+            minBuy
+            minCoinAmount
+            minSell
+            mode
+            sellPricePerCoin
+            status
+        }
+    }
+    `,
+    getOrdersExpiry: gql`
+    query($status: GetOrdersStatus!) {
+        getOrders(status: $status) {
+          dynamicPriceExpiry
+        }
+    }`,
+    getOrders: gql`
+    query($status: GetOrdersStatus!) {
+        getOrders(status: $status) {
+          dynamicPriceExpiry
+          orders {
+            edges {
+              node {
+                id
+                cryptocurrency
+                coinAmount
+                side
+                status
+                createdAt
+                pricePerCoin
+                priceType
+                staticPrice
+                dynamicExchangeRate
+              }
+            }
+          }
+        }
+      }      
+    `,
+    placeLimitOrder: gql`
+    mutation($orderSide: OrderSide!, $amount: BigDecimal!, $crypto: Cryptocurrency, $staticPrice: BigDecimal, $priceType: PriceType!, $dynamicExchangeRate: BigDecimal) {
+        postLimitOrder(orderSide: $orderSide, coinAmount: $amount, cryptocurrency: $crypto, staticPrice: $staticPrice, priceType: $priceType, dynamicExchangeRate: $dynamicExchangeRate){
+          id
+          cryptocurrency
+          coinAmount
+          side
+          status 
+          createdAt
+          pricePerCoin
+          priceType
+          staticPrice
+          dynamicExchangeRate
+        }
+      }
+    `,
+    postMarketOrder: gql`
+    mutation($orderSide: OrderSide!, $amount: BigDecimal!, $crypto: Cryptocurrency) {
+        postMarketOrder(orderSide: $orderSide, coinAmount: $amount, cryptocurrency: $crypto){
+            id
+            cryptocurrency
+            coinAmount
+            side
+            status 
+            createdAt
+            pricePerCoin
+            priceType
+            staticPrice
+            dynamicExchangeRate
+        }
+    }
+    `,
+    getMarketBook: gql `
+    query {
+        getMarketBook {
+          dynamicPriceExpiry
+          orders {
+            edges {
+              node {
+                id
+                cryptocurrency
+                coinAmount
+                side
+                status 
+                createdAt
+                pricePerCoin
+                priceType
+                staticPrice
+                dynamicExchangeRate
+              }
+            }
+          }
+        }
+      }      
     `
 }
 

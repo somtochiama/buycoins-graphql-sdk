@@ -3,6 +3,7 @@ import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index
 import Orders from './packages/order'
 import NairaAccount from './packages/nairaAccount'
 import Api from './packages/api'
+import Trading from './packages/trading'
 
 const BUYCOINS_API_URL = "https://backend.buycoins.tech/api/graphql"
 
@@ -11,6 +12,7 @@ export class Buycoins {
     client: GraphQLClientClass
     orders: Orders
     api: Api
+    trading: Trading
 
     constructor(publicKey: string, secretKey: string) {
         if (!publicKey || !secretKey) {
@@ -24,6 +26,7 @@ export class Buycoins {
         this.orders = new Orders(this.client)
         this.nairaAccount = new NairaAccount(this.client)
         this.api = new Api(this.client)
+        this.trading = new Trading(this.client)
     }
 
 }

@@ -32,3 +32,119 @@ export const createNairaAccountData = {
     accountReference: 'e994df44-3383-4d2a-bebd-3e4c0e59f6a7'
   }
 }
+
+export const getOrdersExpiry = {
+  "data": {
+    "getOrders": {
+      "dynamicPriceExpiry": 1612243795
+    }
+  }
+}
+
+export const getOrders = {
+  "data": {
+    "getOrders": {
+      "dynamicPriceExpiry": 1612244515,
+      "orders": {
+        "edges": [
+          {
+            "node": {
+              "id": "UG9zdE9yZGVyLWQyMzBhYTU4LWU2ZDktNDM2MS04ODFlLWUzNTc1N2EwMWY2Nw==",
+              "cryptocurrency": "bitcoin",
+              "coinAmount": "0.00998924",
+              "side": "buy",
+              "status": "active",
+              "createdAt": 1612242637,
+              "pricePerCoin": "50872.0",
+              "priceType": "dynamic",
+              "staticPrice": null,
+              "dynamicExchangeRate": "1"
+            }
+          },
+          {
+            "node": {
+              "id": "UG9zdE9yZGVyLWUxZmY1YWZjLTRhN2EtNDBmYS1hOWJmLWY4YjY4YTk0NjU4NA==",
+              "cryptocurrency": "bitcoin",
+              "coinAmount": "0.00998729",
+              "side": "buy",
+              "status": "active",
+              "createdAt": 1612242475,
+              "pricePerCoin": "50872.0",
+              "priceType": "dynamic",
+              "staticPrice": null,
+              "dynamicExchangeRate": "1"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+export const marketBook = {
+  "data": {
+    "getMarketBook": {
+      "dynamicPriceExpiry": 1612245175,
+      "orders": {
+        "edges": [
+          {
+            "node": {
+              "id": "UG9zdE9yZGVyLWE0YjgzZDNlLTJlMzUtNDM1My04Y2UxLWQwNzJlNTQzZDFhZQ==",
+              "cryptocurrency": "bitcoin",
+              "coinAmount": "0.04",
+              "side": "sell",
+              "status": "active",
+              "createdAt": 1612244815,
+              "pricePerCoin": "16754620.83",
+              "priceType": "static",
+              "staticPrice": "1675462083",
+              "dynamicExchangeRate": null
+            }
+          },
+          {
+            "node": {
+              "id": "UG9zdE9yZGVyLWQyMzBhYTU4LWU2ZDktNDM2MS04ODFlLWUzNTc1N2EwMWY2Nw==",
+              "cryptocurrency": "bitcoin",
+              "coinAmount": "0.00997582",
+              "side": "buy",
+              "status": "active",
+              "createdAt": 1612242637,
+              "pricePerCoin": "50940.21",
+              "priceType": "dynamic",
+              "staticPrice": null,
+              "dynamicExchangeRate": "1"
+            }
+          },
+          {
+            "node": {
+              "id": "UG9zdE9yZGVyLWUxZmY1YWZjLTRhN2EtNDBmYS1hOWJmLWY4YjY4YTk0NjU4NA==",
+              "cryptocurrency": "bitcoin",
+              "coinAmount": "0.00997387",
+              "side": "buy",
+              "status": "active",
+              "createdAt": 1612242475,
+              "pricePerCoin": "50940.21",
+              "priceType": "dynamic",
+              "staticPrice": null,
+              "dynamicExchangeRate": "1"
+            }
+          },
+          {
+            "node": {
+              "id": "UG9zdE9yZGVyLTM4OWE2YTNhLTRmMTAtNDI5My1iZGQ4LWE3YmRhYjcxYjU5NQ==",
+              "cryptocurrency": "bitcoin",
+              "coinAmount": "0.003",
+              "side": "sell",
+              "status": "active",
+              "createdAt": 1612241320,
+              "pricePerCoin": "16640000.0",
+              "priceType": "static",
+              "staticPrice": "1664000000",
+              "dynamicExchangeRate": null
+            }
+          },
+        ]
+      }
+    }
+  }
+}
