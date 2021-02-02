@@ -11,6 +11,12 @@ enum action {
     Sell = "Sell",
 }
 
+interface OrderOptions {
+    amount: number,
+    price: string,
+    crypto: number,
+}
+
 class Orders extends Api {
     constructor(client: GraphQLClientClass) {
         super(client)
@@ -36,24 +42,12 @@ class Orders extends Api {
         return this.query(operationsData.getPrices)
     }
 
-    async buy(amount: number, crypto: string): Promise<any>{
-        const priceID = await this.getPriceID(amount, crypto, action.Buy)
-        const buyOptions = {
-            crypto,
-            amount,
-            price: priceID
-        }
-        return this.query(operationsData.buyCoin, buyOptions)
+    async buy(opts: OrderOptions): Promise<any>{
+        return this.query(operationsData.buyCoin, opts)
     }
 
-    async sell(amount: number, crypto: string): Promise<any>{
-        const priceID = await this.getPriceID(amount, crypto, action.Sell)
-        const sellOptions = {
-            crypto,
-            amount,
-            price: priceID
-        }
-        return this.query(operationsData.sellCoin, sellOptions)
+    async sell(opts: OrderOptions): Promise<any>{
+        return this.query(operationsData.sellCoin, opts)
     }
 
     async getOrder(id: string): Promise<any>{

@@ -13,7 +13,8 @@ export const priceData =  {
             "cryptocurrency": "ethereum",
             "buyPricePerCoin": "656408.797",
             "minBuy": "0.02",
-            "buyPricePerCoin": "6564",
+            "maxBuy": "11.49923881",
+            "expiresAt": 1612008724
           }
     ]
 }

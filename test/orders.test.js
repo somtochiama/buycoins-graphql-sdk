@@ -51,7 +51,11 @@ describe ("Orders", () => {
 
     test("buy makes the right call", async () => {
         mockQuery.mockClear()
-        const orders = new Orders(mockClient)
+        const orders = new Orders({
+            amount: 0.4,
+            crypto: "ethereum",
+            price: "1"
+        })
         try {
             await orders.buy(0.4, "ethereum");
             expect(mockQuery.mock.calls[0][0]).toBe(operationsData.buyCoin)
@@ -67,7 +71,11 @@ describe ("Orders", () => {
 
     test("sell api makes the right call", async () => {
         mockQuery.mockClear()
-        const orders = new Orders(mockClient)
+        const orders = new Orders({
+            amount: 0.4,
+            crypto: "ethereum",
+            price: "1"
+        })
         try {
             await orders.sell(0.4, "ethereum");
             expect(mockQuery.mock.calls[0][0]).toBe(operationsData.sellCoin)
