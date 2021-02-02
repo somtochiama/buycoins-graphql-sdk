@@ -1,6 +1,6 @@
 # Buycoins GraphQL SDK
 
-A simple javascript SDK for the [Buycoins API](https://developers.buycoins.africa)
+A simple javascript SDK for the [Buycoins API](https://developers.buycoins.africa).
 
 [![codecov](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk/branch/main/graph/badge.svg?token=R4Q1P67I5R)](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk)
 ![Tests](https://github.com/SomtochiAma/buycoins-graphql-sdk/workflows/Tests/badge.svg)
@@ -9,20 +9,20 @@ A simple javascript SDK for the [Buycoins API](https://developers.buycoins.afric
 
 ## Table of Contents
 
-* [Buycoins GraphQL SDK](#buycoins-graphql-sdk)
-    * [Installation](#installation)
-        * [Authentication](#authentication)
-    * [Quick Start](#quick-start)
-    * [Usage](#usage)
-        * [Naira Token Account](#naira-token-account)
-        * [Create Virtual Deposit Account](#create-virtual-deposit-account)
-        * [Placing Orders](#placing-orders)
-        * [Get Prices](#get-prices)
-        * [Buy](#buy)
-        * [Sell](#sell)
-        * [Get Price ID](#get-price-id)
-    * [Feature Parity with the Buycoins API](#feature-parity-with-the-buycoins-api)
-    * [Contributing.](#contributing)
+* [Installation](#installation)
+    * [Authentication](#authentication)
+* [Quick Start](#quick-start)
+* [Usage](#usage)
+    * [Naira Token Account](#naira-token-account)
+      * [Create Virtual Deposit Account](#create-virtual-deposit-account)
+    * [Placing Orders](#placing-orders)
+      * [Get Prices](#get-prices)
+      * [Buy](#buy)
+      * [Sell](#sell)
+      * [Get Price ID](#get-price-id)
+* [P2P Trading](#p2p-trading)
+* [Feature Parity with the Buycoins API](#feature-parity-with-the-buycoins-api)
+* [Contributing.](#contributing)
 
 ## Installation
 
@@ -64,7 +64,7 @@ That's it!
 
 ## Usage
 
-The SDK models the API and each property in the `Buycoins` matches with a section in the Buycoins API documentation.
+The SDK models the API and each property in the `Buycoins` class from the SDK matches with a section in the Buycoins API documentation.
 
 ### Naira Token Account
 
@@ -95,7 +95,7 @@ Example response
   "data": {
     "getPrices": [
       {
-        "id": "QnV5Y29pbnNQcmljZS03ZjdmNWZlYy1kYWU1LTQ3MjItYWFhMS1mOTAxNGQzZWZjNmE=", # will be used in buy and sell API
+        "id": "QnV5Y29pbnNQcmljZS03Z", # will be used in buy and sell API
         "cryptocurrency": "bitcoin",
         "buyPricePerCoin": "16530037.235",
         "minBuy": "0.001",
@@ -164,7 +164,89 @@ buycoins.orders.getPriceID(0.01,"ethereum", "Sell")
 
 ### P2P Trading
 
-// TODO: Add docs
+BuyCoins API docs: (https://developers.buycoins.africa/p2p/introduction)[https://developers.buycoins.africa/p2p/introduction]
+
+#### Dynamic Price Expiry
+
+You can find out when next dynamic prices will be updated
+
+```js
+buycoins.trading.getOrdersExpiry({
+  status: "open"
+})
+```
+BuyCoins API docs: (https://developers.buycoins.africa/p2p/post-limit-order#dynamic-price-expiry)[https://developers.buycoins.africa/p2p/post-limit-order#dynamic-price-expiry]
+
+#### Placing a limit order
+
+You can place a static limit order using the `placeLimitOrder` method. `StaticPrice` is required:
+
+```js
+buycoins.trading.placeLimitOrder({
+    orderSide: "buy",
+    amount: 0.01, 
+    crypto: "bitcoin", 
+    priceType: "static",
+    staticPrice: 6000000,
+  }
+)
+```
+
+You can place a dynamic limit order using the `placeLimitOrder` method. `dynamicExchangeRate` is required:
+
+```js
+buycoins.trading.placeLimitOrder({
+    orderSide: "buy",
+    amount: 0.01, 
+    crypto: "bitcoin", 
+    priceType: "dynamic",
+    dynamicExchangeRate: 1.5,
+  }
+)
+```
+
+BuyCoins API docs: (https://developers.buycoins.africa/p2p/placing-a-limit-order)[https://developers.buycoins.africa/p2p/placing-a-limit-order]
+
+#### Placing a limit order
+
+To post a market order call the `postMarketOrder` method.
+
+Note from API documentation:
+> When you want to sell cryptocurrency, orderSide should be buy so that your order is matched with a buy limit order. To buy cryptocurrency, orderSide should be sell
+
+```js
+buycoins.trading.postMarketOrder({
+    orderSide: "buy", // change to `sell` if you are buying crypto
+    amount: 0.01, 
+    crypto: "bitcoin", 
+  }
+)
+```
+
+BuyCoins API docs: (https://developers.buycoins.africa/p2p/post-market-order#when-to-place-a-market-order)[https://developers.buycoins.africa/p2p/post-market-order#when-to-place-a-market-order]
+
+#### Get Orders
+
+You can retrieve a list of orders you have placed by calling the `getOrders` method. 
+
+```js
+buycoins.trading.getOrders({
+  status: "open" // change to `completed` if you want to retrieve completed orders
+})
+```
+
+BuyCoins API docs: (https://developers.buycoins.africa/p2p/get-orders#open-and-completed-orders)[https://developers.buycoins.africa/p2p/get-orders#open-and-completed-orders]
+
+#### Get Market Orders
+
+You can view the market book using the `getMarketBook` query.
+
+```js
+buycoins.trading.getMarketBook()
+```
+
+BuyCoins API docs: (https://developers.buycoins.africa/p2p/get-market-book)[https://developers.buycoins.africa/p2p/get-market-book]
+
 
 ### Feature Parity with the Buycoins API
 

@@ -54,6 +54,18 @@ class Trading extends Api {
     }
 
     placeLimitOrder(opts: PlaceLimitOrderOpts): Promise<any>{
+        if (opts.priceType == "static" && !opts.staticPrice) {
+            return Promise.reject({
+                status: 422,
+                errors: "field staticPrice required when priceType is static"
+            })
+        }
+        if (opts.priceType == "dynamic" && !opts.dynamicExchangeRate) {
+            return Promise.reject({
+                status: 422,
+                errors: "field dynamicExchangeRate required when priceType is dynamic"
+            })
+        }
         return this.query(operationsData.placeLimitOrder, opts)
     }
 

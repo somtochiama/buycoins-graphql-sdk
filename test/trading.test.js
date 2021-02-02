@@ -50,6 +50,34 @@ describe ("Trading", () => {
         expect(mockQuery.mock.calls[0][1]).toBe(options)
     })
 
+    test("placeLimitOrder fails when priceType is static and no staticPrice", async () => {
+        const options = {
+            orderSide: "buy",
+            amount: 0.01, 
+            crypto: "bitcoin", 
+            priceType: "static",
+        }
+        try {
+            await trading.placeLimitOrder(options);
+          } catch (e) {
+            expect(e.errors).toMatch(/field staticPrice required when priceType is static/);
+        }
+    })
+
+    test("placeLimitOrder fails when priceType is dynamic and no dynamicExchangeRate", async () => {
+        const options = {
+            orderSide: "buy",
+            amount: 0.01, 
+            crypto: "bitcoin", 
+            priceType: "dynamic",
+        }
+        try {
+            await trading.placeLimitOrder(options);
+          } catch (e) {
+            expect(e.errors).toMatch(/field dynamicExchangeRate required when priceType is dynamic/);
+        }
+    })
+
     test("postMarketOrder passes correct data", async () => {
         const options = {
             orderSide: "buy",
