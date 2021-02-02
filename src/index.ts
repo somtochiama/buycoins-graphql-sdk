@@ -14,7 +14,11 @@ const buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_K
 //     }
 // })
 
-// buycoinsClient.orders.buy(0.1, "litecoin")
+// buycoinsClient.orders.buy({
+//     amount: 0.001,
+//     crypto: "ethereum",
+//     price: "QnV5Y29pbnNQcmljZS1lMjdjY2FjMy03YjAxLTRhMzYtOWM5Yi1lODUxY2Q2YzE2ZjY="
+// })
 //             .then(data => console.log(data))
 //             .catch(err => {
 //                 if (err.response) {
@@ -25,9 +29,9 @@ const buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_K
 //             })
 
 
-buycoinsClient.nairaAccount.createDepositAccount({
-    accountName: "somtochi test"
-})
+// buycoinsClient.nairaAccount.createDepositAccount({
+//     accountName: "somtochi test"
+// })
 // .then(data => console.log(data))
 // .catch(err => {
 //     if (err.response) {

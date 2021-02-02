@@ -52,7 +52,7 @@ export const operationsData: Operations = {
             }
         }
     `,
-    createNairaAccount: gql`
+    createNairaAccount: `
     mutation createDepositAccount($accountName: String!) {
         createDepositAccount(accountName: $accountName) {
         accountNumber

@@ -4,6 +4,23 @@ A simple javascript SDK for the [Buycoins API](https://developers.buycoins.afric
 
 [![codecov](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk/branch/main/graph/badge.svg?token=R4Q1P67I5R)](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk)
 
+## Table of Contents
+
+* [Buycoins GraphQL SDK](#buycoins-graphql-sdk)
+    * [Installation](#installation)
+        * [Authentication](#authentication)
+    * [Quick Start](#quick-start)
+    * [Usage](#usage)
+        * [Naira Token Account](#naira-token-account)
+        * [Create Virtual Deposit Account](#create-virtual-deposit-account)
+        * [Placing Orders](#placing-orders)
+        * [Get Prices](#get-prices)
+        * [Buy](#buy)
+        * [Sell](#sell)
+        * [Get Price ID](#get-price-id)
+    * [Feature Parity with the Buycoins API](#feature-parity-with-the-buycoins-api)
+    * [Contributing.](#contributing)
+
 ## Installation
 
 ```sh
@@ -33,7 +50,7 @@ buycoinsClient.nairaAccount.createDepositAccount({
     accountName: "somtochi test"
 })
 .then(data => {
-    // TODO: Handle error
+    // TODO: Handle data
 })
 .catch(err => {
    // TODO: Handle error
@@ -120,7 +137,15 @@ buycoins.orders.sell({
 
 BuyCoins API docs: (https://developers.buycoins.africa/placing-orders/sell)[https://developers.buycoins.africa/placing-orders/sell]
 
-### Get Price ID
+#### Get Order
+
+The buy and sell API usually returns an order object, To get the order, so that you can check the status:
+
+```js
+buycoins.orders.getOrder(<order-id>)
+```
+
+#### Get Price ID
 
 Too lazy to loop over `getPrice` and get the correct ID for the crypto? We got you!
 
@@ -133,4 +158,18 @@ When selling:
 ```js
 buycoins.orders.getPriceID(0.01,"ethereum", "Sell") 
 ```
+
+### Feature Parity with the Buycoins API
+
+This project is in continous development and is striving for feature parity with the Buycoins API.The sections of the Buycoins API yet to be implemented are listed below:
+
+- [P2P Trading](https://developers.buycoins.africa/p2p/introduction)
+- [Sending](https://developers.buycoins.africa/sending/network-fees)
+- [Receiving](https://developers.buycoins.africa/receiving/create-address)
+- [Webhook](https://developers.buycoins.africa/webhooks/introduction)
+
+
+### Contributing.
+
+Your pull request are definitely welcome :love:! We alway looking to add more test and acheive feature parity with the Buycoins API
 

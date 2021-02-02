@@ -14,7 +14,7 @@ enum action {
 interface OrderOptions {
     amount: number,
     price: string,
-    crypto: number,
+    crypto: string,
 }
 
 class Orders extends Api {
