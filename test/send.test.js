@@ -47,15 +47,14 @@ describe ("Trading", () => {
     })
 
     test("getBalance returns correct all data when arg is given", async () => {
-        await send.getBalance({
+        const options = {
             crypto: "bitcoin"
-        })
+        }
+        await send.getBalance(options)
         mockQuery.mockResolvedValue(getBalances)
 
         expect(mockQuery).toHaveBeenCalled()
-        expect(mockQuery.mock.calls[0][0]).toBe(operationsData.getAllBalances)
-        expect(mockQuery.mock.calls[0][1]).toBe({
-            crypto: "bitcoin"
-        })
+        expect(mockQuery.mock.calls[0][0]).toBe(operationsData.getBalance)
+        expect(mockQuery.mock.calls[0][1]).toBe(options)
     })
 })
