@@ -1,20 +1,20 @@
 // For test
 
-import { Buycoins } from './app'
+// import { Buycoins } from './app'
 
-const buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_KEY)
+// const buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_KEY)
 
-buycoinsClient.receive.createAddress({
-    crypto: "bitcoin"
-})
-.then(data => console.log(data))
-.catch(err => {
-    if (err.response) {
-        console.log(err.response)
-    } else {
-        console.log(err)
-    }
-})
+// buycoinsClient.receive.createAddress({
+//     crypto: "bitcoin"
+// })
+// .then(data => console.log(data))
+// .catch(err => {
+//     if (err.response) {
+//         console.log(err.response)
+//     } else {
+//         console.log(err)
+//     }
+// })
 
 // buycoinsClient.orders.buy({
 //     amount: 0.001,

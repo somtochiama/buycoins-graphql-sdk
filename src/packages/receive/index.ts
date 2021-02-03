@@ -1,6 +1,6 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
-import { operationsData } from './operations'
-import Api from './api'
+import { operationsData } from '../operations'
+import Api from '../api'
 
 export interface CreateAddressOpts {
     crypto: string,
@@ -12,19 +12,16 @@ export interface SendOpts {
     address: string,
 }
 
-interface BalanceOpts {
-    crypto?: string, 
-}
 
-class Send extends Api {
+class Receive extends Api {
     constructor(client: GraphQLClientClass) {
         super(client)
     }
 
-    createAddress(opts: CreateAddressOpts) {
+    createAddress(opts: CreateAddressOpts): Promise<any>{
         return this.query(operationsData.createAddress, opts)
     }
 }
 
 
-export default Send
+export default Receive

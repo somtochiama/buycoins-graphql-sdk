@@ -1,4 +1,4 @@
-import Orders from "../src/packages/order"
+import Orders from "../src/packages/orders"
 import { operationsData } from "../src/packages/operations"
 import { priceData, mockClient } from "./testdata/testdata"
 

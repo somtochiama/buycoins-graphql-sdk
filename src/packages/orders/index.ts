@@ -1,6 +1,6 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
-import { operationsData } from './operations'
-import Api from './api'
+import { operationsData } from '../operations'
+import Api from '../api'
 
 interface PriceData {
     [key: string]: any

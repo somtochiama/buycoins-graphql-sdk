@@ -1,4 +1,3 @@
-import Orders from "../src/packages/order"
 import NairaAccount from "../src/packages/nairaAccount"
 import { operationsData } from "../src/packages/operations"
 import { createNairaAccountData } from "./testdata/testdata"

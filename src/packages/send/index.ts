@@ -1,6 +1,6 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
-import { operationsData } from './operations'
-import Api from './api'
+import { operationsData } from '../operations'
+import Api from '../api'
 
 export interface NetworkFeesOpts {
     amount: number,
@@ -22,7 +22,7 @@ class Send extends Api {
         super(client)
     }
 
-    getEstimatedNetworkFee(opts: NetworkFeesOpts) {
+    getEstimatedNetworkFee(opts: NetworkFeesOpts): Promise<any>{
         return this.query(operationsData.getNetworkFees, opts)
     }
 

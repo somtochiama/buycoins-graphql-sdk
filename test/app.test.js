@@ -1,5 +1,5 @@
 import { Buycoins } from '../src/app'
-import Order from '../src/packages/order'
+import Order from '../src/packages/orders'
 import NairaAccount from '../src/packages/nairaAccount'
 import { GraphQLClient } from 'graphql-request'
 
