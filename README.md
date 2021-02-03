@@ -1,6 +1,6 @@
 # Buycoins GraphQL SDK
 
-A simple javascript SDK for the [Buycoins API](https://developers.buycoins.africa).
+A simple and lightweight Javascript SDK for the [Buycoins API](https://developers.buycoins.africa).
 
 [![codecov](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk/branch/main/graph/badge.svg?token=R4Q1P67I5R)](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk)
 ![Tests](https://github.com/SomtochiAma/buycoins-graphql-sdk/workflows/Tests/badge.svg)
@@ -77,7 +77,7 @@ buycoins.NairaAccount.createDepositAccount({
 })
 ```
 
-BuyCoins API docs: (https://developers.buycoins.africa/naira-token-account/create-virtual-deposit-account)[https://developers.buycoins.africa/naira-token-account/create-virtual-deposit-account]
+BuyCoins API docs: [https://developers.buycoins.africa/naira-token-account/create-virtual-deposit-account)[https://developers.buycoins.africa/naira-token-account/create-virtual-deposit-account]
 
 ### Placing Orders
 
@@ -138,7 +138,7 @@ buycoins.orders.sell({
 })
 ```
 
-BuyCoins API docs: (https://developers.buycoins.africa/placing-orders/sell)[https://developers.buycoins.africa/placing-orders/sell]
+BuyCoins API docs: [https://developers.buycoins.africa/placing-orders/sell](https://developers.buycoins.africa/placing-orders/sell)
 
 #### Get Order
 
@@ -164,7 +164,7 @@ buycoins.orders.getPriceID(0.01,"ethereum", "Sell")
 
 ### P2P Trading
 
-BuyCoins API docs: (https://developers.buycoins.africa/p2p/introduction)[https://developers.buycoins.africa/p2p/introduction]
+BuyCoins API docs: [https://developers.buycoins.africa/p2p/introduction](https://developers.buycoins.africa/p2p/introduction)
 
 #### Dynamic Price Expiry
 
@@ -175,7 +175,7 @@ buycoins.trading.getOrdersExpiry({
   status: "open"
 })
 ```
-BuyCoins API docs: (https://developers.buycoins.africa/p2p/post-limit-order#dynamic-price-expiry)[https://developers.buycoins.africa/p2p/post-limit-order#dynamic-price-expiry]
+BuyCoins API docs: [https://developers.buycoins.africa/p2p/post-limit-order#dynamic-price-expiry](https://developers.buycoins.africa/p2p/post-limit-order#dynamic-price-expiry)
 
 #### Placing a limit order
 
@@ -205,7 +205,7 @@ buycoins.trading.placeLimitOrder({
 )
 ```
 
-BuyCoins API docs: (https://developers.buycoins.africa/p2p/placing-a-limit-order)[https://developers.buycoins.africa/p2p/placing-a-limit-order]
+BuyCoins API docs: [https://developers.buycoins.africa/p2p/placing-a-limit-order](https://developers.buycoins.africa/p2p/placing-a-limit-order)
 
 #### Placing a limit order
 
@@ -223,7 +223,7 @@ buycoins.trading.postMarketOrder({
 )
 ```
 
-BuyCoins API docs: (https://developers.buycoins.africa/p2p/post-market-order#when-to-place-a-market-order)[https://developers.buycoins.africa/p2p/post-market-order#when-to-place-a-market-order]
+BuyCoins API docs: [https://developers.buycoins.africa/p2p/post-market-order#when-to-place-a-market-order](https://developers.buycoins.africa/p2p/post-market-order#when-to-place-a-market-order)
 
 #### Get Orders
 
@@ -235,7 +235,7 @@ buycoins.trading.getOrders({
 })
 ```
 
-BuyCoins API docs: (https://developers.buycoins.africa/p2p/get-orders#open-and-completed-orders)[https://developers.buycoins.africa/p2p/get-orders#open-and-completed-orders]
+BuyCoins API docs: [https://developers.buycoins.africa/p2p/get-orders#open-and-completed-orders](https://developers.buycoins.africa/p2p/get-orders#open-and-completed-orders)
 
 #### Get Market Orders
 
@@ -245,7 +245,7 @@ You can view the market book using the `getMarketBook` query.
 buycoins.trading.getMarketBook()
 ```
 
-BuyCoins API docs: (https://developers.buycoins.africa/p2p/get-market-book)[https://developers.buycoins.africa/p2p/get-market-book]
+BuyCoins API docs: [https://developers.buycoins.africa/p2p/get-market-book](https://developers.buycoins.africa/p2p/get-market-book)
 
 
 ### Feature Parity with the Buycoins API
