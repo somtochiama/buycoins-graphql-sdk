@@ -1,7 +1,6 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import { operationsData } from './operations'
 import Api from './api'
-import { format } from 'prettier'
 
 export enum side {
     Buy = "buy",
@@ -38,11 +37,13 @@ class Trading extends Api {
         super(client)
     }
 
+    // eslint-disable-next-line
     getBuycoinsPrices(opts: BuycoinsPricesOpts) {
         // Commenting out as API doesn't have buycoinsPrice field
         // although the  query is present in docs
 
         // return this.query(operationsData.buycoinsPrices, opts)
+        return
     }
 
     getOrdersExpiry(opts: GetOrderOpts): Promise<any>{
