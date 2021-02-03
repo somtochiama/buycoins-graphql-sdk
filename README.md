@@ -4,6 +4,7 @@ A super simple and lightweight Javascript SDK for the [Buycoins API](https://dev
 
 [![codecov](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk/branch/main/graph/badge.svg?token=R4Q1P67I5R)](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk)
 ![Tests](https://github.com/SomtochiAma/buycoins-graphql-sdk/workflows/Tests/badge.svg)
+[![npm version](https://badge.fury.io/js/buycoins-grapql-sdk.svg)]
 
 
 
@@ -246,6 +247,98 @@ buycoins.trading.getMarketBook()
 ```
 
 BuyCoins API docs: [https://developers.buycoins.africa/p2p/get-market-book](https://developers.buycoins.africa/p2p/get-market-book)
+
+#### Placing a limit order
+
+You can place a static limit order using the `placeLimitOrder` method. `StaticPrice` is required:
+
+```js
+buycoins.trading.placeLimitOrder({
+    orderSide: "buy",
+    amount: 0.01, 
+    crypto: "bitcoin", 
+    priceType: "static",
+    staticPrice: 6000000,
+  }
+)
+```
+
+You can place a dynamic limit order using the `placeLimitOrder` method. `dynamicExchangeRate` is required:
+
+```js
+buycoins.trading.placeLimitOrder({
+    orderSide: "buy",
+    amount: 0.01, 
+    crypto: "bitcoin", 
+    priceType: "dynamic",
+    dynamicExchangeRate: 1.5,
+  }
+)
+```
+
+BuyCoins API docs: [https://developers.buycoins.africa/p2p/placing-a-limit-order](https://developers.buycoins.africa/p2p/placing-a-limit-order)
+
+### Send
+
+#### Network Fees
+
+To get estimated network fees before sending
+
+```
+buycoins.send.getEstimatedNetworkFee({
+  crypto: "bitcoin",
+  amount: 0.01
+})
+```
+
+BuyCoins API docs: [https://developers.buycoins.africa/sending/network-fees](https://developers.buycoins.africa/sending/network-fees)
+
+#### Send Cryptocurrency 
+
+This allows you to send cryptocurrency to an on-chain address.
+
+```
+buycoins.send.sendCrypto({
+  crypto: "bitcoin",
+  amount: 0.01,
+  address: "<on-chain-address>"
+})
+```
+
+BuyCoins API docs: [https://developers.buycoins.africa/sending/send](https://developers.buycoins.africa/sending/send)
+
+#### Account Balance
+
+To get account balance of all cryptocurrency:
+
+```
+buycoins.send.getBalance()
+```
+
+To get account balance of a particular cryptocurrency:
+
+```
+buycoins.send.getBalance({
+  crypto: "bitcoin"
+})
+```
+
+BuyCoins API docs: [https://developers.buycoins.africa/sending/account-balances](https://developers.buycoins.africa/sending/account-balances)
+
+
+### Receive
+
+#### Create Address
+
+To receive cryptocurrency, you will first have to create an address on BuyCoins.
+
+```js
+buycoins.receive.createAddress({
+  crypto: "bitcoin"
+})
+```
+BuyCoins API docs: [https://developers.buycoins.africa/receiving/create-address](https://developers.buycoins.africa/receiving/create-address)
+
 
 
 ### Feature Parity with the Buycoins API
