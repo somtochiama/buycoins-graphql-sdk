@@ -1,6 +1,6 @@
-# Buycoins GraphQL SDK
+# Buycoins GraphQL SDK :purple_heart:
 
-A simple and lightweight Javascript SDK for the [Buycoins API](https://developers.buycoins.africa).
+A super simple and lightweight Javascript SDK for the [Buycoins API](https://developers.buycoins.africa).
 
 [![codecov](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk/branch/main/graph/badge.svg?token=R4Q1P67I5R)](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk)
 ![Tests](https://github.com/SomtochiAma/buycoins-graphql-sdk/workflows/Tests/badge.svg)
@@ -259,5 +259,5 @@ This project is in continous development and is striving for feature parity with
 
 ### Contributing.
 
-Your pull request are definitely welcome :love:! We alway looking to add more test and acheive feature parity with the Buycoins API
+Your pull request are definitely welcome :heart:! We alway looking to add more test and acheive feature parity with the Buycoins API. Take a look at [Contributing.md](Contributing.md)
 
