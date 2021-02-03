@@ -115,36 +115,34 @@ export const marketBook = {
               "dynamicExchangeRate": "1"
             }
           },
-          {
-            "node": {
-              "id": "UG9zdE9yZGVyLWUxZmY1YWZjLTRhN2EtNDBmYS1hOWJmLWY4YjY4YTk0NjU4NA==",
-              "cryptocurrency": "bitcoin",
-              "coinAmount": "0.00997387",
-              "side": "buy",
-              "status": "active",
-              "createdAt": 1612242475,
-              "pricePerCoin": "50940.21",
-              "priceType": "dynamic",
-              "staticPrice": null,
-              "dynamicExchangeRate": "1"
-            }
-          },
-          {
-            "node": {
-              "id": "UG9zdE9yZGVyLTM4OWE2YTNhLTRmMTAtNDI5My1iZGQ4LWE3YmRhYjcxYjU5NQ==",
-              "cryptocurrency": "bitcoin",
-              "coinAmount": "0.003",
-              "side": "sell",
-              "status": "active",
-              "createdAt": 1612241320,
-              "pricePerCoin": "16640000.0",
-              "priceType": "static",
-              "staticPrice": "1664000000",
-              "dynamicExchangeRate": null
-            }
-          },
         ]
       }
     }
+  }
+}
+
+export const networkFees = {
+  "data": {
+    "getEstimatedNetworkFee": {
+      "estimatedFee": "0.00046",
+      "total": "0.01046"
+    }
+  }
+}
+
+export const getBalances = {
+  "data": {
+    "getBalances": [
+      {
+        "id": "QWNjb3VudC0=",
+        "cryptocurrency": "usd_tether",
+        "confirmedBalance": "0.0"
+      },
+      {
+        "id": "QWNjb3VudC0=",
+        "cryptocurrency": "naira_token",
+        "confirmedBalance": "2655.18"
+      },
+    ]
   }
 }

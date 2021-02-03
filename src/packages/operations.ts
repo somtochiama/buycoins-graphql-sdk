@@ -163,6 +163,46 @@ export const operationsData: Operations = {
           }
         }
       }      
+    `,
+    getNetworkFees: `
+    query($crypto: Cryptocurrency, $amount: BigDecimal!) {
+      getEstimatedNetworkFee(cryptocurrency: $crypto, amount: $amount) {
+        estimatedFee
+        total
+      }
+    }`,
+    send: `
+    mutation($crypto: Cryptocurrency, $amount: BigDecimal!, $address: String!) {
+      send(cryptocurrency: $crypto, amount: $amount, address: $address) {
+        id
+        address
+        amount
+        cryptocurrency
+        fee
+        status
+        transaction {
+          id
+        }
+      }
+    }
+    `,
+    getAllBalances: `
+      query{
+        getBalances{
+          id
+          cryptocurrency
+          confirmedBalance
+        }
+      }
+    `,
+    getBalance: `
+      query($crypto: Cryptocurrency){
+        getBalances(cryptocurrency: $crypto){
+          id
+          cryptocurrency
+          confirmedBalance
+        }
+      }
     `
 }
 
