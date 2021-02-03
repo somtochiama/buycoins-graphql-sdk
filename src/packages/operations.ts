@@ -203,6 +203,14 @@ export const operationsData: Operations = {
           confirmedBalance
         }
       }
+    `,
+    createAddress: `
+    mutation($crypto: Cryptocurrency!) {
+      createAddress(cryptocurrency: $crypto) {
+        cryptocurrency
+        address
+      }
+    }
     `
 }
 

@@ -252,8 +252,6 @@ BuyCoins API docs: [https://developers.buycoins.africa/p2p/get-market-book](http
 
 This project is in continous development and is striving for feature parity with the Buycoins API.The sections of the Buycoins API yet to be implemented are listed below:
 
-- [Sending](https://developers.buycoins.africa/sending/network-fees)
-- [Receiving](https://developers.buycoins.africa/receiving/create-address)
 - [Webhook](https://developers.buycoins.africa/webhooks/introduction)
 
 

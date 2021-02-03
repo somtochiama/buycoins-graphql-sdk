@@ -2,7 +2,7 @@ import Send from "../src/packages/send"
 import { operationsData } from "../src/packages/operations"
 import { getBalances, mockClient, networkFees } from "./testdata/testdata"
 
-describe ("Trading", () => {
+describe ("Send", () => {
 
     const mockQuery = jest.fn()
     Send.prototype.query = mockQuery

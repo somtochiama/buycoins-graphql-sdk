@@ -2,11 +2,6 @@ import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index
 import { operationsData } from './operations'
 import Api from './api'
 
-export enum side {
-    Buy = "buy",
-    Sell = "sell",
-}
-
 export interface NetworkFeesOpts {
     amount: number,
     crypto: string,
@@ -17,7 +12,8 @@ export interface SendOpts {
     crypto: string,
     address: string,
 }
-interface BalanceOpts {
+
+export interface BalanceOpts {
     crypto?: string, 
 }
 

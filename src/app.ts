@@ -5,6 +5,7 @@ import NairaAccount from './packages/nairaAccount'
 import Api from './packages/api'
 import Trading from './packages/trading'
 import Send from './packages/send'
+import Receive from './packages/receive'
 
 const BUYCOINS_API_URL = "https://backend.buycoins.tech/api/graphql"
 
@@ -15,6 +16,7 @@ export class Buycoins {
     api: Api
     trading: Trading
     send: Send
+    receive: Receive
 
     constructor(publicKey: string, secretKey: string) {
         if (!publicKey || !secretKey) {
@@ -30,6 +32,7 @@ export class Buycoins {
         this.api = new Api(this.client)
         this.trading = new Trading(this.client)
         this.send = new Send(this.client)
+        this.receive = new Receive(this.client)
     }
 
 }
