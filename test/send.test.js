@@ -44,7 +44,6 @@ describe ("Trading", () => {
         expect(mockQuery).toHaveBeenCalled()
         expect(mockQuery.mock.calls[0][0]).toBe(operationsData.getAllBalances)
         expect(mockQuery.mock.calls[0][1]).toBeUndefined
-        expect(promise).resolves.toEqual(getBalances)
     })
 
     test("getBalance returns correct all data when arg is given", async () => {
