@@ -3,7 +3,7 @@ import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index
 import Orders from './packages/orders'
 import NairaAccount from './packages/nairaAccount'
 import Api from './packages/api'
-import Trading from './packages/trading'
+import Trading from './packages/trading/'
 import Send from './packages/send'
 import Receive from './packages/receive'
 

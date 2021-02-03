@@ -1,21 +1,7 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import { operationsData } from '../operations'
+import { PriceData, action, OrderOptions} from './interface'
 import Api from '../api'
-
-interface PriceData {
-    [key: string]: any
-}
-
-enum action {
-    Buy = "Buy",
-    Sell = "Sell",
-}
-
-interface OrderOptions {
-    amount: number,
-    price: string,
-    crypto: string,
-}
 
 class Orders extends Api {
     constructor(client: GraphQLClientClass) {

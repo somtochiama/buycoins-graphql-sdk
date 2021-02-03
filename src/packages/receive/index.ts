@@ -1,17 +1,7 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import { operationsData } from '../operations'
+import { CreateAddressOpts, SendOpts } from './interface'
 import Api from '../api'
-
-export interface CreateAddressOpts {
-    crypto: string,
-}
-
-export interface SendOpts {
-    amount: number,
-    crypto: string,
-    address: string,
-}
-
 
 class Receive extends Api {
     constructor(client: GraphQLClientClass) {

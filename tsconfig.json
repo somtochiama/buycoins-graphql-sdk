@@ -11,6 +11,6 @@
       "moduleResolution": "node",
       "esModuleInterop": true,
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "src/packages/trading/.ts"],
     "exclude": ["node_modules"]
   }
