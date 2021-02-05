@@ -129,7 +129,7 @@ buycoins.orders.buy({
 
 #### Sell
 
-To buy cryptocurrency with the API:
+To sell cryptocurrency with the API:
 
 ```js
 buycoins.orders.sell({
