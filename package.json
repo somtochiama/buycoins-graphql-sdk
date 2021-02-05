@@ -11,7 +11,7 @@
     "lint": "eslint . --ext .ts --fix"
   },
   "files": [
-    "dist"
+    "build"
   ],
   "repository": {
     "type": "git",
