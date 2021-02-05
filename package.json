@@ -10,6 +10,9 @@
     "type-check": "tsc --noEmt",
     "lint": "eslint . --ext .ts --fix"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/SomtochiAma/buycoins-graphql-sdk.git"
