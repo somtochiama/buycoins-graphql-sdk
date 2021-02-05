@@ -1,6 +1,6 @@
 {
   "name": "buycoins-graphql-sdk",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A Javascript SDK for Buycoins GraphQL API",
   "main": "build/app.js",
   "types": "build",
