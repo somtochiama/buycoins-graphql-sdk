@@ -4,6 +4,7 @@ export interface Operations {
     [key:string]: string
 }
 
+// TODO: Split operations for different files
 export const operationsData: Operations = {
     getPrices:  gql`
         query{
