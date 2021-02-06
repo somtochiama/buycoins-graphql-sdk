@@ -22,6 +22,18 @@ A super simple and lightweight Javascript SDK for the [Buycoins API](https://dev
       * [Sell](#sell)
       * [Get Price ID](#get-price-id)
 * [P2P Trading](#p2p-trading)
+  * [Dynamic Price Expiry](#dynamic-price-expiry)
+  * [Placing a limit order](#placing-a-limit-order)
+  * [Placing a limit order](#placing-a-limit-order-1)
+  * [Get Orders](#get-orders)
+  * [Get Market Orders](#get-market-orders)
+  * [Placing a limit order](#placing-a-limit-order-2)
+* [Send](#send)
+  * [Network Fees](#network-fees)
+  * [Send Cryptocurrency](#send-cryptocurrency)
+  * [Account Balance](#account-balance)
+* [Receive](#receive)
+  * [Create Address](#create-address)
 * [Feature Parity with the Buycoins API](#feature-parity-with-the-buycoins-api)
 * [Contributing.](#contributing)
 
@@ -129,7 +141,7 @@ buycoins.orders.buy({
 
 #### Sell
 
-To buy cryptocurrency with the API:
+To sell cryptocurrency with the API:
 
 ```js
 buycoins.orders.sell({
