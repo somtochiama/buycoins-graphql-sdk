@@ -1,11 +1,10 @@
-# <img src="https://raw.githubusercontent.com/SomtochiAma/buycoins-graphql-sdk/main/images/download.jpeg" width="70" height="70"> Buycoins GraphQL SDK :purple_heart:
+# <img src="https://raw.githubusercontent.com/SomtochiAma/buycoins-graphql-sdk/main/images/download.jpeg" width="50" height="50"> Buycoins GraphQL SDK :purple_heart:
 
 A super simple and lightweight Javascript SDK for the [Buycoins API](https://developers.buycoins.africa).
 
 [![codecov](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk/branch/main/graph/badge.svg?token=R4Q1P67I5R)](https://codecov.io/gh/SomtochiAma/buycoins-graphql-sdk)
 ![Tests](https://github.com/SomtochiAma/buycoins-graphql-sdk/workflows/Tests/badge.svg)
-[![npm version](https://badge.fury.io/js/buycoins-grapql-sdk.svg)]
-
+[![npm version](https://badge.fury.io/js/buycoins-graphql-sdk.svg)](https://badge.fury.io/js/buycoins-graphql-sdk)
 
 
 ## Table of Contents
