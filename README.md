@@ -1,4 +1,4 @@
-# Buycoins GraphQL SDK :purple_heart:
+# <img src="https://raw.githubusercontent.com/SomtochiAma/buycoins-graphql-sdk/main/images/download.jpeg" width="70" height="70"> Buycoins GraphQL SDK :purple_heart:
 
 A super simple and lightweight Javascript SDK for the [Buycoins API](https://developers.buycoins.africa).
 
