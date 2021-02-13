@@ -1,42 +1,60 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import { operationsData } from '../operations'
-import { PriceData, action, OrderOptions} from './interface'
+import { PriceData, OrderOptions, getPricesOpts} from './interface'
+import { BuycoinsPrice, Order } from '../types'
 import Api from '../api'
+import { side } from '../trading/interface'
+
 
 class Orders extends Api {
     constructor(client: GraphQLClientClass) {
         super(client)
     }
     
-    async getPriceID(amount: number, crypto: string, action: action): Promise<string>{
+    async getPriceID(amount: number, crypto: string, action: side): Promise<string>{
         const data = await this.getPrices()
         const priceData = data.getPrices.find((price: PriceData) => price.cryptocurrency == crypto)
-        // TODO: Write validator
         if (priceData == undefined) {
-            throw new Error (`could not find price data for crypto ${crypto}.`)
+            return Promise.reject({
+               status: 422,
+               message: `could not find price data for crypto ${crypto}.`  
+            })
         }
-        const min = `min${action}`
-        const max = `max${action}`
-        if (amount < priceData[min] || amount > priceData[max]) {
-            throw new Error (`price must be betweeen ${min} and ${max}`)
+
+        if (action == "buy") {
+            if (amount < priceData.minBuy || amount > priceData.maxBuy) {
+                return Promise.reject({
+                    status: 422,
+                    message: `price must be betweeen ${priceData.minBuy} and ${priceData.maxBuy}` 
+                })
+            }
+        }
+
+        if (action == "sell") {
+            if (amount < priceData.minSell || amount > priceData.maxSell) {
+                return Promise.reject({
+                    status: 422,
+                    message: `price must be betweeen ${priceData.minBuy} and ${priceData.maxBuy}` 
+                })
+            }
         }
 
         return priceData.id
     }
 
-    getPrices(): Promise<any>{
-        return this.query(operationsData.getPrices)
+    getPrices(opts?: getPricesOpts): Promise<{getPrices:Array<BuycoinsPrice>}>{
+        return this.query(operationsData.getPrices, opts)
     }
 
-    async buy(opts: OrderOptions): Promise<any>{
+    buy(opts: OrderOptions): Promise<{buy:Order}>{
         return this.query(operationsData.buyCoin, opts)
     }
 
-    async sell(opts: OrderOptions): Promise<any>{
+    sell(opts: OrderOptions): Promise<{sell:Order}>{
         return this.query(operationsData.sellCoin, opts)
     }
 
-    async getOrder(id: string): Promise<any>{
+    getOrder(id: string): Promise<{node:Order}>{
         return this.query(operationsData.getOrder, {id})
     }
 

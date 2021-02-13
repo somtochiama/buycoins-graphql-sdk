@@ -1,9 +1,11 @@
+import { Cryptocurrency } from '../types'
+
 export interface CreateAddressOpts {
-    crypto: string,
+    crypto: Cryptocurrency,
 }
 
 export interface SendOpts {
     amount: number,
-    crypto: string,
+    crypto: Cryptocurrency,
     address: string,
 }

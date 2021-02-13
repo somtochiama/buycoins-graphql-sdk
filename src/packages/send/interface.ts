@@ -1,14 +1,21 @@
+import { Cryptocurrency } from '../types'
+
 export interface NetworkFeesOpts {
     amount: number,
-    crypto: string,
+    crypto: Cryptocurrency,
 }
 
 export interface SendOpts {
     amount: number,
-    crypto: string,
+    crypto: Cryptocurrency,
     address: string,
 }
 
 export interface BalanceOpts {
-    crypto?: string, 
+    crypto?: Cryptocurrency, 
+}
+
+export interface EstimatedFee {
+    estimatedFee: bigint,
+    total: bigint,
 }

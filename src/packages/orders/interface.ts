@@ -1,3 +1,5 @@
+import { Cryptocurrency, OrderSide, ID } from '../types'
+
 export interface PriceData {
     [key: string]: any
 }
@@ -9,6 +11,11 @@ export enum action {
 
 export interface OrderOptions {
     amount: number,
-    price: string,
-    crypto: string,
+    price: ID,
+    crypto: Cryptocurrency,
+}
+
+export interface getPricesOpts {
+    crypto: Cryptocurrency,
+    side: OrderSide
 }

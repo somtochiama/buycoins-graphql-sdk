@@ -1,6 +1,7 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import { operationsData } from '../operations'
-import { CreateAddressOpts, SendOpts } from './interface'
+import { CreateAddressOpts } from './interface'
+import { Address } from '../types'
 import Api from '../api'
 
 class Receive extends Api {
@@ -8,7 +9,7 @@ class Receive extends Api {
         super(client)
     }
 
-    createAddress(opts: CreateAddressOpts): Promise<any>{
+    createAddress(opts: CreateAddressOpts): Promise<{createAddress:Address}>{
         return this.query(operationsData.createAddress, opts)
     }
 }

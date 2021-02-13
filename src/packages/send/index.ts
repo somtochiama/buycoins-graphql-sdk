@@ -1,6 +1,7 @@
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import { operationsData } from '../operations'
-import { NetworkFeesOpts, SendOpts, BalanceOpts } from './interface'
+import { OnchainTransferRequest, Account } from '../types'
+import * as types from './interface'
 import Api from '../api'
 
 class Send extends Api {
@@ -8,18 +9,19 @@ class Send extends Api {
         super(client)
     }
 
-    getEstimatedNetworkFee(opts: NetworkFeesOpts): Promise<any>{
+    getEstimatedNetworkFee(opts: types.NetworkFeesOpts): Promise<{getEstimatedNetworkFee: types.EstimatedFee}>{
         return this.query(operationsData.getNetworkFees, opts)
     }
 
-    sendCrypto(opts: SendOpts): Promise<any>{
+    sendCrypto(opts: types.SendOpts): Promise<{ send: OnchainTransferRequest}>{
         return this.query(operationsData.send, opts)
     }
 
-    getBalance(opts?: BalanceOpts): Promise<any>{
+    getBalance(opts?: types.BalanceOpts): Promise<{getBalance: Account}>{
         if (opts && opts.crypto) {
             return this.query(operationsData.getBalance, opts)
         }
+
         return this.query(operationsData.getAllBalances)
     }
 }

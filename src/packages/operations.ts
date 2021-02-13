@@ -7,8 +7,8 @@ export interface Operations {
 // TODO: Split operations for different files
 export const operationsData: Operations = {
     getPrices:  gql`
-        query{
-            getPrices{
+        query($crypto: Cryptocurrency, $side: OrderSide) {
+            getPrices(cryptocurrency: $crypto, side: $side){
             id
             cryptocurrency
             buyPricePerCoin
@@ -66,7 +66,7 @@ export const operationsData: Operations = {
     `,
     buycoinsPrices: gql`
     query($side: String!, $mode: String!, $crypto: String!) {
-        buycoinsPrices(side: $side, mode: $mode, cryptocurrency: $crypto){
+        buycoinsPrice(side: $side, mode: $mode, cryptocurrency: $crypto){
             buyPricePerCoin
             cryptocurrency
             id
