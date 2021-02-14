@@ -1,5 +1,4 @@
 import { GraphQLClient } from 'graphql-request'
-import { Buffer } from 'buffer/'
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import Orders from './packages/orders'
 import NairaAccount from './packages/nairaAccount'
