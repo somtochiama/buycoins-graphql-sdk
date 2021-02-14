@@ -17,6 +17,19 @@ describe ("Orders", () => {
         expect(promise).resolves.toEqual(priceData)
     })
 
+    test("getPrices when options are passed returns correct data", () => {
+        mockQuery.mockClear()
+        const orders = new Orders(mockClient)
+        const opts = {
+            crypto: "bitcoin"
+        }
+        const promise = orders.getPrices(opts)
+        expect(mockQuery).toHaveBeenCalled()
+        expect(mockQuery.mock.calls[0][0]).toBe(operationsData.getPrices)
+        expect(mockQuery.mock.calls[0][1]).toBe(opts)
+        expect(promise).resolves.toEqual(priceData)
+    })
+
     describe("getPriceID", () => {
         test("returns correct ID", async () => {
     
@@ -39,10 +52,37 @@ describe ("Orders", () => {
               }
         })
 
-        test("throws error for amount that is less than min", async () => {    
+        test("throws error for buy amount that is less than min", async () => {    
             const orders = new Orders(mockClient)
             try {
-                await orders.getPriceID(0.000001, "ethereum");
+                await orders.getPriceID(0.000001, "ethereum", "buy");
+              } catch (e) {
+                expect(e.message).toMatch(/price must be between/);
+              }
+        })
+
+        test("throws error for buy amount that is more than max", async () => {    
+            const orders = new Orders(mockClient)
+            try {
+                await orders.getPriceID(1111.111, "ethereum", "buy");
+              } catch (e) {
+                expect(e.message).toMatch(/price must be between/);
+              }
+        })
+
+        test("throws error for sell amount that is less than min", async () => {    
+            const orders = new Orders(mockClient)
+            try {
+                await orders.getPriceID(0.00001, "ethereum", "sell");
+              } catch (e) {
+                expect(e.message).toMatch(/price must be between/);
+              }
+        })
+
+        test("throws error for sell amount that is more than max", async () => {    
+            const orders = new Orders(mockClient)
+            try {
+                await orders.getPriceID(22.111, "ethereum", "sell");
               } catch (e) {
                 expect(e.message).toMatch(/price must be between/);
               }
@@ -51,11 +91,7 @@ describe ("Orders", () => {
 
     test("buy makes the right call", async () => {
         mockQuery.mockClear()
-        const orders = new Orders({
-            amount: 0.4,
-            crypto: "ethereum",
-            price: "1"
-        })
+        const orders = new Orders(mockClient)
         try {
             await orders.buy(0.4, "ethereum");
             expect(mockQuery.mock.calls[0][0]).toBe(operationsData.buyCoin)
@@ -84,6 +120,19 @@ describe ("Orders", () => {
                 crypto: "ethereum",
                 price: "1"
             })
+        } catch (e) {
+            expect(e.message).toMatch('');
+        }
+    })
+
+
+    test("sell api makes the right call", async () => {
+        mockQuery.mockClear()
+        const orders = new Orders(mockClient)
+        try {
+            await orders.getOrder("12345");
+            expect(mockQuery.mock.calls[0][0]).toBe(operationsData.getOrder)
+            expect(mockQuery.mock.calls[0][1]).toEqual("12345")
         } catch (e) {
             expect(e.message).toMatch('');
         }

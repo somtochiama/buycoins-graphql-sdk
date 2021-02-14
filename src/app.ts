@@ -7,6 +7,7 @@ import Api from './packages/api'
 import P2P from './packages/p2p'
 import Send from './packages/send'
 import Receive from './packages/receive'
+import Webhooks from './packages/webhooks'
 
 const BUYCOINS_API_URL = "https://backend.buycoins.tech/api/graphql"
 
@@ -18,6 +19,7 @@ export class Buycoins {
     p2p: P2P
     send: Send
     receive: Receive
+    webhooks: Webhooks
 
     constructor(publicKey: string, secretKey: string) {
         if (!publicKey || !secretKey) {
@@ -34,6 +36,7 @@ export class Buycoins {
         this.p2p = new P2P(this.client)
         this.send = new Send(this.client)
         this.receive = new Receive(this.client)
+        this.webhooks = new Webhooks(this.client)
     }
 
 }

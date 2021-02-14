@@ -25,7 +25,7 @@ class Orders extends Api {
             if (amount < priceData.minBuy || amount > priceData.maxBuy) {
                 return Promise.reject({
                     status: 422,
-                    message: `price must be betweeen ${priceData.minBuy} and ${priceData.maxBuy}` 
+                    message: `price must be between ${priceData.minBuy} and ${priceData.maxBuy}` 
                 })
             }
         }
@@ -34,7 +34,7 @@ class Orders extends Api {
             if (amount < priceData.minSell || amount > priceData.maxSell) {
                 return Promise.reject({
                     status: 422,
-                    message: `price must be betweeen ${priceData.minBuy} and ${priceData.maxBuy}` 
+                    message: `price must be between ${priceData.minBuy} and ${priceData.maxBuy}` 
                 })
             }
         }

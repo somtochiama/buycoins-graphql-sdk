@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "buffer": "^6.0.3",
+    "crypto": "^1.0.1",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
     "rollup-plugin-typescript2": "^0.29.0"

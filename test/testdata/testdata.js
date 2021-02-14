@@ -6,6 +6,8 @@ export const priceData =  {
             "buyPricePerCoin": "16530037.235",
             "minBuy": "0.001",
             "maxBuy": "0.45663548",
+            "minSell": "0.01",
+            "maxSell": "0.45663548",
             "expiresAt": 1612008724
           },
           {
