@@ -1,6 +1,6 @@
 {
   "name": "buycoins-graphql-sdk",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A package for testing",
   "main": "build/index.js",
   "module": "build/index.es.js",
