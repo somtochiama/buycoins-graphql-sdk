@@ -183,7 +183,7 @@ BuyCoins API docs: [https://developers.buycoins.africa/p2p/introduction](https:/
 You can find out when next dynamic prices will be updated
 
 ```js
-buycoins.trading.getOrdersExpiry({
+buycoins.p2p.getOrdersExpiry({
   status: "open"
 })
 ```
@@ -194,7 +194,7 @@ BuyCoins API docs: [https://developers.buycoins.africa/p2p/post-limit-order#dyna
 You can place a static limit order using the `placeLimitOrder` method. `StaticPrice` is required:
 
 ```js
-buycoins.trading.placeLimitOrder({
+buycoins.p2p.placeLimitOrder({
     orderSide: "buy",
     amount: 0.01, 
     crypto: "bitcoin", 
@@ -207,7 +207,7 @@ buycoins.trading.placeLimitOrder({
 You can place a dynamic limit order using the `placeLimitOrder` method. `dynamicExchangeRate` is required:
 
 ```js
-buycoins.trading.placeLimitOrder({
+buycoins.p2p.placeLimitOrder({
     orderSide: "buy",
     amount: 0.01, 
     crypto: "bitcoin", 
@@ -227,7 +227,7 @@ Note from API documentation:
 > When you want to sell cryptocurrency, orderSide should be buy so that your order is matched with a buy limit order. To buy cryptocurrency, orderSide should be sell
 
 ```js
-buycoins.trading.postMarketOrder({
+buycoins.p2p.postMarketOrder({
     orderSide: "buy", // change to `sell` if you are buying crypto
     amount: 0.01, 
     crypto: "bitcoin", 
@@ -242,7 +242,7 @@ BuyCoins API docs: [https://developers.buycoins.africa/p2p/post-market-order#whe
 You can retrieve a list of orders you have placed by calling the `getOrders` method. 
 
 ```js
-buycoins.trading.getOrders({
+buycoins.p2p.getOrders({
   status: "open" // change to `completed` if you want to retrieve completed orders
 })
 ```
@@ -254,7 +254,7 @@ BuyCoins API docs: [https://developers.buycoins.africa/p2p/get-orders#open-and-c
 You can view the market book using the `getMarketBook` query.
 
 ```js
-buycoins.trading.getMarketBook()
+buycoins.p2p.getMarketBook()
 ```
 
 BuyCoins API docs: [https://developers.buycoins.africa/p2p/get-market-book](https://developers.buycoins.africa/p2p/get-market-book)
@@ -264,7 +264,7 @@ BuyCoins API docs: [https://developers.buycoins.africa/p2p/get-market-book](http
 You can place a static limit order using the `placeLimitOrder` method. `StaticPrice` is required:
 
 ```js
-buycoins.trading.placeLimitOrder({
+buycoins.p2p.placeLimitOrder({
     orderSide: "buy",
     amount: 0.01, 
     crypto: "bitcoin", 
@@ -277,7 +277,7 @@ buycoins.trading.placeLimitOrder({
 You can place a dynamic limit order using the `placeLimitOrder` method. `dynamicExchangeRate` is required:
 
 ```js
-buycoins.trading.placeLimitOrder({
+buycoins.p2p.placeLimitOrder({
     orderSide: "buy",
     amount: 0.01, 
     crypto: "bitcoin", 

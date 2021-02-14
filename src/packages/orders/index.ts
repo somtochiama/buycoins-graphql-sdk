@@ -3,7 +3,7 @@ import { operationsData } from '../operations'
 import { PriceData, OrderOptions, getPricesOpts} from './interface'
 import { BuycoinsPrice, Order } from '../types'
 import Api from '../api'
-import { side } from '../trading/interface'
+import { side } from '../p2p/interface'
 
 
 class Orders extends Api {

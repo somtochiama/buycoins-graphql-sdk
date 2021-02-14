@@ -1,9 +1,9 @@
-import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
+import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist'
 import { operationsData } from '../operations'
 import * as types from './interface'
 import Api from '../api'
 
-class Trading extends Api {
+class P2P extends Api {
     constructor(client: GraphQLClientClass) {
         super(client)
     }
@@ -51,4 +51,4 @@ class Trading extends Api {
 }
 
 
-export default Trading
+export default P2P

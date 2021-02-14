@@ -1,13 +1,13 @@
-import Trading from "../src/packages/trading"
+import P2P from "../src/packages/p2p"
 import { operationsData } from "../src/packages/operations"
 import { getOrders, getOrdersExpiry, marketBook, mockClient } from "./testdata/testdata"
 
-describe ("Trading", () => {
+describe ("P2P Trading", () => {
 
     const mockQuery = jest.fn()
-    Trading.prototype.query = mockQuery
+    P2P.prototype.query = mockQuery
 
-    const trading = new Trading(mockClient)
+    const p2p = new P2P(mockClient)
     beforeEach(() => {
         mockQuery.mockClear()
     })
@@ -17,7 +17,7 @@ describe ("Trading", () => {
             status: "open"
         }
         mockQuery.mockResolvedValue(getOrdersExpiry)
-        const promise = trading.getOrdersExpiry(options)
+        const promise = p2p.getOrdersExpiry(options)
         expect(mockQuery).toHaveBeenCalled()
         expect(mockQuery.mock.calls[0][0]).toBe(operationsData.getOrdersExpiry)
         expect(mockQuery.mock.calls[0][1]).toBe(options)
@@ -29,7 +29,7 @@ describe ("Trading", () => {
             status: "open"
         }
         mockQuery.mockResolvedValue(getOrders)
-        const promise = trading.getOrders(options)
+        const promise = p2p.getOrders(options)
         expect(mockQuery).toHaveBeenCalled()
         expect(mockQuery.mock.calls[0][0]).toBe(operationsData.getOrders)
         expect(mockQuery.mock.calls[0][1]).toBe(options)
@@ -44,7 +44,7 @@ describe ("Trading", () => {
             priceType: "static",
             staticPrice: 6000000,
         }
-        await trading.placeLimitOrder(options)
+        await p2p.placeLimitOrder(options)
         expect(mockQuery).toHaveBeenCalled()
         expect(mockQuery.mock.calls[0][0]).toBe(operationsData.placeLimitOrder)
         expect(mockQuery.mock.calls[0][1]).toBe(options)
@@ -58,7 +58,7 @@ describe ("Trading", () => {
             priceType: "static",
         }
         try {
-            await trading.placeLimitOrder(options);
+            await p2p.placeLimitOrder(options);
           } catch (e) {
             expect(e.errors).toMatch(/field staticPrice required when priceType is static/);
         }
@@ -72,7 +72,7 @@ describe ("Trading", () => {
             priceType: "dynamic",
         }
         try {
-            await trading.placeLimitOrder(options);
+            await p2p.placeLimitOrder(options);
           } catch (e) {
             expect(e.errors).toMatch(/field dynamicExchangeRate required when priceType is dynamic/);
         }
@@ -84,7 +84,7 @@ describe ("Trading", () => {
             amount: 0.01, 
             crypto: "bitcoin", 
         }
-        await trading.postMarketOrder(options)
+        await p2p.postMarketOrder(options)
         expect(mockQuery).toHaveBeenCalled()
         expect(mockQuery.mock.calls[0][0]).toBe(operationsData.postMarketOrder)
         expect(mockQuery.mock.calls[0][1]).toBe(options)
@@ -92,7 +92,7 @@ describe ("Trading", () => {
 
     test("getMarketBook returns correct data", () => {
         mockQuery.mockResolvedValue(marketBook)
-        const promise = trading.getMarketBook()
+        const promise = p2p.getMarketBook()
         expect(mockQuery).toHaveBeenCalled()
         expect(mockQuery.mock.calls[0][0]).toBe(operationsData.getMarketBook)
         expect(promise).resolves.toEqual(marketBook)

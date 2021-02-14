@@ -1,9 +1,10 @@
 import { GraphQLClient } from 'graphql-request'
+import { Buffer } from 'buffer/'
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import Orders from './packages/orders'
 import NairaAccount from './packages/nairaAccount'
 import Api from './packages/api'
-import Trading from './packages/trading/'
+import P2P from './packages/p2p'
 import Send from './packages/send'
 import Receive from './packages/receive'
 
@@ -14,7 +15,7 @@ export class Buycoins {
     client: GraphQLClientClass
     orders: Orders
     api: Api
-    trading: Trading
+    p2p: P2P
     send: Send
     receive: Receive
 
@@ -30,7 +31,7 @@ export class Buycoins {
         this.orders = new Orders(this.client)
         this.nairaAccount = new NairaAccount(this.client)
         this.api = new Api(this.client)
-        this.trading = new Trading(this.client)
+        this.p2p = new P2P(this.client)
         this.send = new Send(this.client)
         this.receive = new Receive(this.client)
     }
