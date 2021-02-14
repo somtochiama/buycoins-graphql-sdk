@@ -33,6 +33,7 @@ A super simple and lightweight Javascript SDK for the [Buycoins API](https://dev
   * [Account Balance](#account-balance)
 * [Receive](#receive)
   * [Create Address](#create-address)
+* [Run your own GraphQL queries](#run-your-own-graphql-queries)
 * [Feature Parity with the Buycoins API](#feature-parity-with-the-buycoins-api)
 * [Contributing.](#contributing)
 
@@ -350,7 +351,40 @@ buycoins.receive.createAddress({
 ```
 BuyCoins API docs: [https://developers.buycoins.africa/receiving/create-address](https://developers.buycoins.africa/receiving/create-address)
 
+### Run your own GraphQL queries
 
+If we are yet to implement some features or you want to run some customized queries outside what the API provides. You can access the `query` function.
+
+```js
+buycoins.api.request(`query{
+  getPrices{
+    id
+    cryptocurrency
+    buyPricePerCoin
+    minBuy
+    maxBuy
+    expiresAt
+  }
+}`)
+```
+
+You can pass in options to the query:
+
+```js
+const options = {
+  name: "wanda"
+}
+
+buycoins.api.request(`mutation($name: String!) {
+  createDepositAccount(accountName: name) {
+    accountNumber
+    accountName
+    accountType
+    bankName
+    accountReference
+  }
+}`, options)
+```
 
 ### Feature Parity with the Buycoins API
 
