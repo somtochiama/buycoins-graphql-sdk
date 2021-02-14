@@ -1,16 +1,12 @@
 {
   "name": "buycoins-graphql-sdk",
   "version": "1.1.7",
-  "description": "A package for testing",
-  "main": "build/index.js",
-  "module": "build/index.es.js",
-  "types": "build/types",
+  "description": "A simple SDK for buycoins API",
   "scripts": {
     "test": "jest --coverage",
-    "build": "rollup -c",
+    "build": "tsc -d",
     "type-check": "tsc --noEmt",
-    "lint": "eslint . --ext .ts --fix",
-    "build:browser": "rollup --config browser.config.js"
+    "lint": "eslint . --ext .ts --fix"
   },
   "files": [
     "build"
