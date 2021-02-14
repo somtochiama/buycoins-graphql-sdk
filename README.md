@@ -85,7 +85,7 @@ The SDK models the API and each property in the `Buycoins` class from the SDK ma
 To create a virtual bank account:
 
 ```
-buycoins.NairaAccount.createDepositAccount({
+buycoins.nairaAccount.createDepositAccount({
     accountName: <replace-with-account-name>
 })
 ```
