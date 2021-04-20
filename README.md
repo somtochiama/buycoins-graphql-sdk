@@ -14,7 +14,6 @@ A super simple and lightweight Javascript SDK for the [Buycoins API](https://dev
 * [Quick Start](#quick-start)
 * [Usage](#usage)
     * [Naira Token Account](#naira-token-account)
-      * [Create Virtual Deposit Account](#create-virtual-deposit-account)
     * [Placing Orders](#placing-orders)
       * [Get Prices](#get-prices)
       * [Buy](#buy)
@@ -45,7 +44,7 @@ npm i buycoins-graphql-sdk
 
 ### Authentication 
 
-To access the Buycoins API, you will need to generate to generate a public and a secret key on thr `API Settings` screen in the Buycoins app. Enable this feature by sending a request to <support@buycoins.africa>.
+To access the Buycoins API, you will need to generate a public and a secret key on the `API Settings` screen in the Buycoins app. Enable this feature by sending a request to <support@buycoins.africa>.
 
 From the Buycoins API documentation:
 
@@ -53,7 +52,7 @@ From the Buycoins API documentation:
 
 ## Quick Start
 
-To create a naira deposit account:
+To get up and running:
 
 ```js
 import { Buycoins } from 'buycoins-graphql-sdk'
@@ -62,9 +61,7 @@ import { Buycoins } from 'buycoins-graphql-sdk'
 var buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_KEY)
 
 // The SDK is promise based :). You can also use async/await
-buycoinsClient.nairaAccount.createDepositAccount({
-    accountName: "somtochi test"
-})
+buycoinsClient.getBalance()
 .then(data => {
     // TODO: Handle data
 })
@@ -81,16 +78,10 @@ The SDK models the API and each property in the `Buycoins` class from the SDK ma
 
 ### Naira Token Account
 
-#### Create Virtual Deposit Account
-To create a virtual bank account:
+#### Depositing and Withdrawing Naira
+Depositing and Widthdrawals occur with the Buycoins User Interface on web or the mobile app.
 
-```
-buycoins.nairaAccount.createDepositAccount({
-    accountName: <replace-with-account-name>
-})
-```
-
-BuyCoins API docs: [https://developers.buycoins.africa/naira-token-account/create-virtual-deposit-account)[https://developers.buycoins.africa/naira-token-account/create-virtual-deposit-account]
+BuyCoins API docs: [https://developers.buycoins.africa/naira-token-account/]([https://developers.buycoins.africa/naira-token-account/)
 
 ### Placing Orders
 
