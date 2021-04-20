@@ -17,19 +17,8 @@ export type PriceType = "static" | "dynamic"
 
 export type GetOrdersStatus = "open" | "completed"
 
-export type BankAccountTypes = "withdrawal" | "deposit"
-
 export type PostOrderStatus = "inactive" | "active" | "pending_deactivation" | "payment_pending"
     | "payment_processing" | "cancelled" | "expired" | "completed" | "open" | "done"
-
-export interface DepositAccount {
-    accountName: string,
-    accountNumber: string,
-    accountReference?: string,
-    accountType: BankAccountTypes,
-    bankName: string,
-    id: ID,
-}
 
 export interface BuycoinsPrice {
     buyPricePerCoin: bigint,

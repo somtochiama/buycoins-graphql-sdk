@@ -25,16 +25,6 @@ export const mockClient = {
   request: "",
 }
 
-export const createNairaAccountData = {
-  createDepositAccount: {
-    accountNumber: '9977055301',
-    accountName: 'somtochi test',
-    accountType: 'deposit',
-    bankName: 'Providus Bank',
-    accountReference: 'e994df44-3383-4d2a-bebd-3e4c0e59f6a7'
-  }
-}
-
 export const getOrdersExpiry = {
   "data": {
     "getOrders": {

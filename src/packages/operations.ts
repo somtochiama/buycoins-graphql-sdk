@@ -53,17 +53,6 @@ export const operationsData: Operations = {
             }
         }
     `,
-    createNairaAccount: gql`
-    mutation createDepositAccount($accountName: String!) {
-        createDepositAccount(accountName: $accountName) {
-        accountNumber
-        accountName
-        accountType
-        bankName
-        accountReference
-        }
-    }
-    `,
     buycoinsPrices: gql`
     query($side: String!, $mode: String!, $crypto: String!) {
         buycoinsPrice(side: $side, mode: $mode, cryptocurrency: $crypto){

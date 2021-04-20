@@ -1,7 +1,6 @@
 import { GraphQLClient } from 'graphql-request'
 import { GraphQLClient as GraphQLClientClass  } from 'graphql-request/dist/index'
 import Orders from './packages/orders'
-import NairaAccount from './packages/nairaAccount'
 import Api from './packages/api'
 import P2P from './packages/p2p'
 import Send from './packages/send'
@@ -11,7 +10,6 @@ import Webhooks from './packages/webhooks'
 const BUYCOINS_API_URL = "https://backend.buycoins.tech/api/graphql"
 
 export class Buycoins {
-    nairaAccount: NairaAccount
     client: GraphQLClientClass
     orders: Orders
     api: Api
@@ -30,7 +28,6 @@ export class Buycoins {
             authorization: `Basic ${authValue}`
         } })
         this.orders = new Orders(this.client)
-        this.nairaAccount = new NairaAccount(this.client)
         this.api = new Api(this.client)
         this.p2p = new P2P(this.client)
         this.send = new Send(this.client)
