@@ -8,7 +8,7 @@ import Send from './packages/send'
 import Receive from './packages/receive'
 import Webhooks from './packages/webhooks'
 
-const BUYCOINS_API_URL = "https://backend.buycoins.tech/api/graphql"
+
 
 export class Buycoins {
     nairaAccount: NairaAccount
@@ -20,10 +20,12 @@ export class Buycoins {
     receive: Receive
     webhooks: Webhooks
 
-    constructor(publicKey: string, secretKey: string) {
+    constructor(publicKey: string, secretKey: string, environment: string = '') {
         if (!publicKey || !secretKey) {
             throw new Error("missing credentials, please pass in pub/secret key")
         }
+
+        const BUYCOINS_API_URL = environment === "production" ? "https://backend.buycoins.tech/api/graphql" : "https://sandbox.backend.buycoins.tech/api/graphiql"
 
         const authValue = Buffer.from(publicKey + ':' + secretKey).toString('base64');
         this.client = new GraphQLClient(BUYCOINS_API_URL, { headers: {

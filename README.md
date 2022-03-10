@@ -59,7 +59,8 @@ To create a naira deposit account:
 import { Buycoins } from 'buycoins-graphql-sdk'
 
 // Pass in the public and secret key when creating a new instance.
-var buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_KEY)
+// The base URL defaults to the sandbox / development URL. if you want to use this in production, the environment should be "production".
+var buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_KEY, process.env.NODE_ENV)
 
 // The SDK is promise based :). You can also use async/await
 buycoinsClient.nairaAccount.createDepositAccount({
