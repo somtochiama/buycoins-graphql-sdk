@@ -395,5 +395,5 @@ This project is in continous development and is striving for feature parity with
 
 ### Contributing.
 
-Your pull request are definitely welcome :heart:! We alway looking to add more test and acheive feature parity with the Buycoins API. Take a look at [Contributing.md](Contributing.md)
+Your pull request are definitely welcome :heart:! We're always looking forward to add more test and acheive feature parity with the Buycoins API. Take a look at [Contributing.md](Contributing.md)
 
