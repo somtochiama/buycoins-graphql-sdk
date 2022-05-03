@@ -45,7 +45,7 @@ npm i buycoins-graphql-sdk
 
 ### Authentication 
 
-To access the Buycoins API, you will need to generate to generate a public and a secret key on thr `API Settings` screen in the Buycoins app. Enable this feature by sending a request to <support@buycoins.africa>.
+To access the Buycoins API, you will need to generate a public and a secret key on thr `API Settings` screen in the Buycoins app. You can enable this feature by sending a request to <support@buycoins.africa>.
 
 From the Buycoins API documentation:
 
@@ -395,5 +395,5 @@ This project is in continous development and is striving for feature parity with
 
 ### Contributing.
 
-Your pull request are definitely welcome :heart:! We're always looking forward to add more test and acheive feature parity with the Buycoins API. Take a look at [Contributing.md](Contributing.md)
+Your pull requests are definitely welcome :heart:! We're always looking forward to adding more test and acheiving feature parity with the Buycoins API. Take a look at [Contributing.md](Contributing.md)
 
